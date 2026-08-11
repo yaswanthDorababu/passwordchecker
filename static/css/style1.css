@@ -1,0 +1,390 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+body {
+
+min-height: 100vh;
+
+font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+color: white;
+
+background:
+    radial-gradient(
+        circle at top left,
+        #123b4a,
+        transparent 40%
+    ),
+    radial-gradient(
+        circle at bottom right,
+        #162b50,
+        transparent 40%
+    ),
+    #071018;
+
+
+}
+
+/* NAVBAR */
+
+.navbar {
+
+
+height: 75px;
+
+display: flex;
+
+align-items: center;
+
+justify-content: space-between;
+
+padding: 0 7%;
+
+border-bottom:
+    1px solid rgba(255,255,255,0.08);
+
+
+}
+
+.logo {
+
+
+font-size: 22px;
+
+font-weight: bold;
+
+
+}
+
+.logo span {
+
+
+color: #00e5ff;
+
+
+}
+
+.nav-links {
+
+
+display: flex;
+
+gap: 25px;
+
+
+}
+
+.nav-links a {
+
+
+color: #cbd5e1;
+
+text-decoration: none;
+
+font-size: 14px;
+
+
+}
+
+/* RESULT */
+
+.result-page {
+
+
+min-height:
+    calc(100vh - 75px);
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+padding: 30px;
+
+
+}
+
+.result-card {
+
+
+width: 100%;
+
+max-width: 500px;
+
+padding: 40px;
+
+text-align: center;
+
+border-radius: 20px;
+
+background:
+    rgba(255,255,255,0.07);
+
+border:
+    1px solid rgba(255,255,255,0.1);
+
+backdrop-filter: blur(20px);
+
+box-shadow:
+    0 20px 60px rgba(0,0,0,0.4);
+
+
+}
+
+.result-icon {
+
+
+font-size: 45px;
+
+margin-bottom: 15px;
+
+
+}
+
+.result-card h1 {
+
+
+color: #00e5ff;
+
+margin-bottom: 10px;
+
+
+}
+
+.result-label {
+
+
+color: #94a3b8;
+
+
+}
+
+.result {
+
+
+font-size: 30px;
+
+font-weight: bold;
+
+margin: 15px 0;
+
+color: #00ff9d;
+
+
+}
+
+.score {
+
+display: flex;
+
+flex-direction: column;
+
+margin-bottom: 20px;
+
+
+}
+
+.score strong {
+
+
+font-size: 28px;
+
+
+}
+
+.score span {
+
+
+color: #64748b;
+
+font-size: 12px;
+
+
+}
+
+/* PROGRESS */
+
+.progress {
+
+
+height: 30px;
+
+width: 100%;
+
+position: relative;
+
+overflow: hidden;
+
+border-radius: 20px;
+
+background: #1e293b;
+
+
+}
+
+.progress__fill {
+
+
+height: 100%;
+
+background:
+    linear-gradient(
+        90deg,
+        #ff4545,
+        #ffd000,
+        #00e676
+    );
+
+transition: width 0.6s;
+
+
+}
+
+.progress__text {
+
+position: absolute;
+
+top: 0;
+
+left: 0;
+
+width: 100%;
+
+line-height: 30px;
+
+color: white;
+
+font-weight: bold;
+
+
+}
+
+/* MESSAGE */
+
+.message {
+
+
+margin-top: 20px;
+
+padding: 14px;
+
+border-radius: 10px;
+
+font-size: 13px;
+
+
+}
+
+.message.weak {
+
+
+background:
+    rgba(255,70,70,0.1);
+
+color: #ff6b6b;
+
+
+}
+
+.message.good {
+
+
+background:
+    rgba(255,210,0,0.1);
+
+color: #ffd000;
+
+
+}
+
+.message.excellent {
+
+
+background:
+    rgba(0,255,150,0.1);
+
+color: #00ff9d;
+
+}
+
+/* ACTIONS */
+
+.result-actions {
+
+
+display: flex;
+
+gap: 10px;
+
+margin-top: 20px;
+
+
+}
+
+.result-actions a {
+
+
+flex: 1;
+
+text-decoration: none;
+
+}
+
+.result-actions button {
+
+width: 100%;
+
+padding: 12px;
+
+border: none;
+
+border-radius: 9px;
+
+cursor: pointer;
+
+font-weight: bold;
+
+
+}
+
+.secondary-button {
+
+
+background: #1e293b;
+
+color: white;
+
+
+}
+
+.result-actions .primary-button {
+
+
+margin-top: 0;
+
+
+}
+
+@media(max-width:600px) {
+
+
+.result-card {
+
+    padding: 25px;
+
+}
+
+.result-actions {
+
+    flex-direction: column;
+
+}
+
+}

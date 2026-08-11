@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Password Analysis</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/result.css') }}">
+
+
+</head>
+
+<body>
+
+<div class="container">
+
+
+<h1>🔒 Password Analysis</h1>
+
+
+<!-- PASSWORD STRENGTH -->
+
+<div class="result">
+
+    <h2>Password Strength</h2>
+
+    <div class="strength-result">
+
+        {{ result }}
+
+    </div>
+
+</div>
+
+
+<!-- PROGRESS BAR -->
+
+<div class="progress">
+
+    <div
+        class="progress__fill"
+        style="width: {{ score * 10 }}%;">
+    </div>
+
+    <span class="progress__text">
+        {{ score * 10 }}%
+    </span>
+
+</div>
+
+
+<!-- COMMON PASSWORD CHECK -->
+
+<div class="common-check">
+
+    {% if common %}
+
+        <div class="common-icon">
+            🚨
+        </div>
+
+        <h2 class="common-danger">
+            Common Password
+        </h2>
+
+        <p>
+            This password <strong>IS PRESENT</strong>
+            in the common passwords list.
+        </p>
+
+        <p class="warning">
+            ⚠️ Please choose a different password.
+        </p>
+
+    {% else %}
+
+        <div class="common-icon">
+            ✅
+        </div>
+
+        <h2 class="common-safe">
+            Not a Common Password
+        </h2>
+
+        <p>
+            This password is
+            <strong>NOT PRESENT</strong>
+            in the common passwords list.
+        </p>
+
+        <p class="safe-message">
+            🛡️ This password was not found
+            in our common-password database.
+        </p>
+
+    {% endif %}
+
+</div>
+
+
+<!-- BUTTON -->
+
+<a href="/" class="check-again">
+
+    Check Another Password
+
+</a>
+```
+
+</div>
+
+</body>
+
+</html>

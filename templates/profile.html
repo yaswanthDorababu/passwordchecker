@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Profile - Password Security</title>
+
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/profile.css') }}"
+>
+
+
+</head>
+
+<body>
+
+<!-- =========================================
+     SIDEBAR
+========================================= -->
+
+<aside class="sidebar">
+
+
+<div class="logo">
+
+    <div class="logo-icon">
+        🔐
+    </div>
+
+    <div class="logo-text">
+
+        <strong>Password</strong>
+
+        <span>Security</span>
+
+    </div>
+
+</div>
+
+
+<nav class="sidebar-nav">
+
+    <a href="/dashboard" class="nav-item">
+
+        <span>📊</span>
+
+        Dashboard
+
+    </a>
+
+
+    <a href="/" class="nav-item">
+
+        <span>🔍</span>
+
+        Password Checker
+
+    </a>
+
+
+    <a href="/generator" class="nav-item">
+
+        <span>🎲</span>
+
+        Password Generator
+
+    </a>
+
+
+    
+
+
+    <a href="/history" class="nav-item">
+
+        <span>📜</span>
+
+        Password History
+
+    </a>
+
+
+    <a href="/profile" class="nav-item active">
+
+        <span>👤</span>
+
+        Profile
+
+    </a>
+
+</nav>
+
+
+<div class="sidebar-bottom">
+
+    <a
+        href="{{ url_for('logout') }}"
+        class="nav-item"
+    >
+
+        <span>🚪</span>
+
+        Logout
+
+    </a>
+
+</div>
+
+
+</aside>
+
+<!-- =========================================
+     MAIN CONTENT
+========================================= -->
+
+<main class="main-content">
+
+
+<!-- HEADER -->
+
+<header class="top-header">
+
+    <div>
+
+        <h1>Profile</h1>
+
+        <p>
+            Manage your Password Security account.
+        </p>
+
+    </div>
+
+
+    <div class="user-area">
+
+        <div class="notification">
+            🔔
+        </div>
+
+
+        <div class="user-avatar">
+
+            {{ user["name"][0].upper() }}
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================
+     PROFILE CARD
+====================================== -->
+
+<section class="profile-container">
+
+
+    <div class="profile-header">
+
+
+        <div class="profile-avatar">
+
+            {{ user["name"][0].upper() }}
+
+        </div>
+
+
+        <div>
+
+            <h2>
+                {{ user["name"] }}
+            </h2>
+
+            <p>
+                {{ user["email"] }}
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================
+         ACCOUNT INFORMATION
+    ================================== -->
+
+    <div class="section-heading">
+
+        <div>
+
+            <h2>Account Information</h2>
+
+            <p>
+                Your registered account details.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="profile-info">
+
+
+        <div class="info-row">
+
+            <div class="info-icon">
+                👤
+            </div>
+
+            <div class="info-content">
+
+                <span>Name</span>
+
+                <strong>
+                    {{ user["name"] }}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="info-row">
+
+            <div class="info-icon">
+                📧
+            </div>
+
+            <div class="info-content">
+
+                <span>Email Address</span>
+
+                <strong>
+                    {{ user["email"] }}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="info-row">
+
+            <div class="info-icon">
+                🆔
+            </div>
+
+            <div class="info-content">
+
+                <span>User ID</span>
+
+                <strong>
+                    #{{ user["id"] }}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================
+         SECURITY
+    ================================== -->
+
+    <div class="section-heading security-heading">
+
+        <div>
+
+            <h2>Account Security</h2>
+
+            <p>
+                Keep your account secure.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="security-card">
+
+
+        <div class="security-icon">
+            🛡️
+        </div>
+
+
+        <div class="security-content">
+
+            <h3>
+                Password Protected
+            </h3>
+
+            <p>
+                Your account password is securely
+                stored using password hashing.
+            </p>
+
+        </div>
+
+
+        <div class="security-status">
+            ✓ Secure
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================
+         QUICK ACTIONS
+    ================================== -->
+
+    <div class="section-heading actions-heading">
+
+        <div>
+
+            <h2>Quick Actions</h2>
+
+            <p>
+                Access your security tools.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="actions-grid">
+
+
+        <a
+            href="/"
+            class="action-card"
+        >
+
+            <div class="action-icon blue">
+                🔍
+            </div>
+
+            <div>
+
+                <h3>
+                    Password Checker
+                </h3>
+
+                <p>
+                    Check your password strength.
+                </p>
+
+            </div>
+
+            <span class="arrow">
+                →
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="/generator"
+            class="action-card"
+        >
+
+            <div class="action-icon purple">
+                🎲
+            </div>
+
+            <div>
+
+                <h3>
+                    Password Generator
+                </h3>
+
+                <p>
+                    Create a strong password.
+                </p>
+
+            </div>
+
+            <span class="arrow">
+                →
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="/history"
+            class="action-card"
+        >
+
+            <div class="action-icon green">
+                📜
+            </div>
+
+            <div>
+
+                <h3>
+                    Password History
+                </h3>
+
+                <p>
+                    View your previous checks.
+                </p>
+
+            </div>
+
+            <span class="arrow">
+                →
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="/dashboard"
+            class="action-card"
+        >
+
+            <div class="action-icon cyan">
+                📊
+            </div>
+
+            <div>
+
+                <h3>
+                    Dashboard
+                </h3>
+
+                <p>
+                    View your security overview.
+                </p>
+
+            </div>
+
+            <span class="arrow">
+                →
+            </span>
+
+        </a>
+
+
+    </div>
+
+
+
+    <!-- =================================
+         LOGOUT
+    ================================== -->
+
+    <div class="logout-section">
+
+        <a
+            href="{{ url_for('logout') }}"
+            class="logout-button"
+        >
+            🚪 Logout
+        </a>
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+</body>
+
+</html>

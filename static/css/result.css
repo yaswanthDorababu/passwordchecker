@@ -1,0 +1,363 @@
+/* =========================
+RESULT PAGE
+========================= */
+
+body {
+
+
+margin: 0;
+
+padding: 0;
+
+font-family: Arial, Helvetica, sans-serif;
+
+background:
+    linear-gradient(
+        135deg,
+        #1e3c72,
+        #2a5298
+    );
+
+min-height: 100vh;
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+
+}
+
+/* =========================
+MAIN CARD
+========================= */
+
+.container {
+
+
+background: white;
+
+width: 420px;
+
+padding: 35px;
+
+border-radius: 18px;
+
+text-align: center;
+
+box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.3);
+
+
+}
+
+/* =========================
+HEADING
+========================= */
+
+h1 {
+
+
+color: #333;
+
+margin-bottom: 25px;
+
+font-size: 32px;
+
+
+}
+
+/* =========================
+PASSWORD STRENGTH RESULT
+========================= */
+
+.result {
+
+
+font-size: 24px;
+
+font-weight: bold;
+
+color: #4CAF50;
+
+margin-bottom: 20px;
+
+
+}
+
+.result h2 {
+
+
+font-size: 20px;
+
+color: #555;
+
+margin-bottom: 10px;
+
+
+}
+
+.strength-result {
+
+
+font-size: 28px;
+
+font-weight: bold;
+
+color: #4CAF50;
+
+
+}
+
+/* =========================
+PROGRESS BAR
+========================= */
+
+.progress {
+
+
+width: 100%;
+
+height: 30px;
+
+background: #ddd;
+
+border-radius: 20px;
+
+overflow: hidden;
+
+position: relative;
+
+margin-top: 15px;
+
+
+}
+
+.progress__fill {
+
+
+height: 100%;
+
+background:
+    linear-gradient(
+        to right,
+        #ff4d4d,
+        #ffcc00,
+        #4CAF50
+    );
+
+transition:
+    width 0.5s ease-in-out;
+
+
+}
+
+.progress__text {
+
+
+position: absolute;
+
+width: 100%;
+
+left: 0;
+
+top: 0;
+
+line-height: 30px;
+
+font-weight: bold;
+
+color: #222;
+
+
+}
+
+/* =========================
+COMMON PASSWORD SECTION
+========================= */
+
+.common-check {
+
+
+margin-top: 28px;
+
+padding: 22px;
+
+border-radius: 14px;
+
+text-align: center;
+
+
+}
+
+/* Common password */
+
+.common-check:has(.common-danger) {
+
+
+background: #fff1f1;
+
+border: 2px solid #ff5252;
+
+
+}
+
+/* Not common password */
+
+.common-check:has(.common-safe) {
+
+
+background: #edfff4;
+
+border: 2px solid #4CAF50;
+
+
+}
+
+.common-icon {
+
+
+font-size: 38px;
+
+margin-bottom: 8px;
+
+
+}
+
+.common-danger {
+
+
+color: #e53935;
+
+font-size: 22px;
+
+margin: 8px 0;
+
+
+}
+
+.common-safe {
+
+
+color: #2e7d32;
+
+font-size: 22px;
+
+margin: 8px 0;
+
+
+}
+
+.common-check p {
+
+
+color: #555;
+
+font-size: 15px;
+
+line-height: 1.5;
+
+margin: 8px 0;
+
+
+}
+
+/* Warning */
+
+.warning {
+
+
+color: #e65100 !important;
+
+font-weight: bold;
+
+
+}
+
+/* Safe message */
+
+.safe-message {
+
+
+color: #2e7d32 !important;
+
+font-weight: bold;
+
+
+}
+
+/* =========================
+BUTTON
+========================= */
+
+.check-again {
+
+
+display: inline-block;
+
+margin-top: 25px;
+
+padding: 13px 25px;
+
+border: none;
+
+border-radius: 8px;
+
+background: #4CAF50;
+
+color: white;
+
+font-size: 16px;
+
+font-weight: bold;
+
+text-decoration: none;
+
+cursor: pointer;
+
+transition: 0.3s;
+
+
+}
+
+.check-again:hover {
+
+
+background: #388E3C;
+
+transform: scale(1.05);
+
+
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+
+.container {
+
+    width: 85%;
+
+    padding: 25px;
+
+}
+
+
+h1 {
+
+    font-size: 27px;
+
+}
+
+
+.strength-result {
+
+    font-size: 24px;
+
+}
+
+}

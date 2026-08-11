@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard | Password Security</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+
+</head>
+
+<body>
+
+<!-- =========================
+     SIDEBAR
+========================= -->
+
+<aside class="sidebar">
+
+
+<div class="sidebar-logo">
+
+    <div class="logo-icon">
+        🔐
+    </div>
+
+    <div>
+        <strong>Password</strong>
+        <span>Security</span>
+    </div>
+
+</div>
+
+
+<nav class="sidebar-nav">
+
+
+    <a href="/dashboard"
+       class="nav-item active">
+
+        <span>📊</span>
+
+        Dashboard
+
+    </a>
+
+
+    <a href="/"
+       class="nav-item">
+
+        <span>🔍</span>
+
+        Password Checker
+
+    </a>
+
+
+    <a href="/generator"
+       class="nav-item">
+
+        <span>🎲</span>
+
+        Password Generator
+
+    </a>
+
+
+    
+
+
+    <a href="/history"
+       class="nav-item">
+
+        <span>📜</span>
+
+        Password History
+
+    </a>
+
+
+    <a href="/profile"
+       class="nav-item">
+
+        <span>👤</span>
+
+        Profile
+
+    </a>
+
+
+</nav>
+
+
+<div class="sidebar-bottom">
+
+    <a href="{{ url_for('logout') }}"
+       class="nav-item">
+
+        <span>🚪</span>
+
+        Logout
+
+    </a>
+
+</div>
+
+
+</aside>
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
+<main class="dashboard">
+
+
+<!-- TOP BAR -->
+
+<header class="topbar">
+
+
+    <div>
+
+        <h1>Dashboard</h1>
+
+        <p>
+            Welcome back,
+            <strong>{{ session.get("user_name", "User") }}</strong>!
+            Here's your password security overview.
+        </p>
+
+    </div>
+
+
+    <div class="user-area">
+
+
+        <div class="notification">
+            🔔
+        </div>
+
+
+        <div class="user-avatar">
+
+            {{ session.get("user_name", "U")[0].upper() }}
+
+        </div>
+
+
+    </div>
+
+
+</header>
+
+
+
+<!-- =========================
+     STATISTICS
+========================= -->
+
+<section class="stats-grid">
+
+
+    <!-- TOTAL CHECKS -->
+
+    <div class="stat-card">
+
+
+        <div class="stat-icon blue">
+            🔍
+        </div>
+
+
+        <div class="stat-info">
+
+            <span>Total Checks</span>
+
+            <strong>
+                {{ total_checks }}
+            </strong>
+
+            <small>
+                Passwords analyzed
+            </small>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- STRONG PASSWORDS -->
+
+    <div class="stat-card">
+
+
+        <div class="stat-icon green">
+            🛡️
+        </div>
+
+
+        <div class="stat-info">
+
+            <span>Strong Passwords</span>
+
+            <strong>
+                {{ excellent_count }}
+            </strong>
+
+            <small class="positive">
+                {{ strong_percentage }}% of checks
+            </small>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- GOOD PASSWORDS -->
+
+    <div class="stat-card">
+
+
+        <div class="stat-icon yellow">
+            ⚡
+        </div>
+
+
+        <div class="stat-info">
+
+            <span>Good Passwords</span>
+
+            <strong>
+                {{ good_count }}
+            </strong>
+
+            <small>
+                Can be improved
+            </small>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- WEAK PASSWORDS -->
+
+    <div class="stat-card">
+
+
+        <div class="stat-icon red">
+            ⚠️
+        </div>
+
+
+        <div class="stat-info">
+
+            <span>Weak Passwords</span>
+
+            <strong>
+                {{ weak_count }}
+            </strong>
+
+            <small class="negative">
+                Need attention
+            </small>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================
+     QUICK ACTIONS
+========================= -->
+
+<section class="section">
+
+
+    <div class="section-heading">
+
+
+        <div>
+
+            <h2>Quick Actions</h2>
+
+            <p>
+                Quickly access your security tools.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="actions-grid">
+
+
+        <!-- CHECK PASSWORD -->
+
+        <a href="/"
+           class="action-card">
+
+
+            <div class="action-icon blue">
+                🔍
+            </div>
+
+
+            <div>
+
+                <h3>Check Password</h3>
+
+                <p>
+                    Analyze password strength.
+                </p>
+
+            </div>
+
+
+            <span class="arrow">
+                →
+            </span>
+
+
+        </a>
+
+
+
+        <!-- GENERATOR -->
+
+        <a href="/generator"
+           class="action-card">
+
+
+            <div class="action-icon purple">
+                🎲
+            </div>
+
+
+            <div>
+
+                <h3>Generate Password</h3>
+
+                <p>
+                    Create a secure password.
+                </p>
+
+            </div>
+
+
+            <span class="arrow">
+                →
+            </span>
+
+
+        </a>
+
+
+
+        <!-- COMMON PASSWORDS -->
+
+        <a href="/common-passwords"
+           class="action-card">
+
+
+            <div class="action-icon red">
+                🚨
+            </div>
+
+
+            <div>
+
+                <h3>Common Passwords</h3>
+
+                <p>
+                    Check commonly used passwords.
+                </p>
+
+            </div>
+
+
+            <span class="arrow">
+                →
+            </span>
+
+
+        </a>
+
+
+
+        <!-- HISTORY -->
+
+        <a href="/history"
+           class="action-card">
+
+
+            <div class="action-icon green">
+                📜
+            </div>
+
+
+            <div>
+
+                <h3>Password History</h3>
+
+                <p>
+                    View your previous checks.
+                </p>
+
+            </div>
+
+
+            <span class="arrow">
+                →
+            </span>
+
+
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================
+     RECENT ACTIVITY
+========================= -->
+
+<section class="section">
+
+
+    <div class="section-heading">
+
+
+        <div>
+
+            <h2>Recent Activity</h2>
+
+            <p>
+                Your latest password security checks.
+            </p>
+
+        </div>
+
+
+        <a href="/history"
+           class="view-all">
+
+            View All →
+
+        </a>
+
+
+    </div>
+
+
+
+    <div class="activity-card">
+
+
+        {% if recent_history %}
+
+
+            {% for item in recent_history %}
+
+
+            <div class="activity-row">
+
+
+                {% if item["result"] == "Excellent" %}
+
+
+                    <div class="activity-status strong">
+                        ✓
+                    </div>
+
+
+                    <div class="activity-details">
+
+                        <strong>
+                            Password Check
+                        </strong>
+
+                        <span>
+                            {{ item["created_at"] }}
+                        </span>
+
+                    </div>
+
+
+                    <div class="activity-score strong-text">
+
+                        {{ item["score"] }}/10
+
+                    </div>
+
+
+                    <div class="activity-badge strong-badge">
+
+                        Excellent
+
+                    </div>
+
+
+                {% elif item["result"] == "Good" %}
+
+
+                    <div class="activity-status good">
+                        ✓
+                    </div>
+
+
+                    <div class="activity-details">
+
+                        <strong>
+                            Password Check
+                        </strong>
+
+                        <span>
+                            {{ item["created_at"] }}
+                        </span>
+
+                    </div>
+
+
+                    <div class="activity-score good-text">
+
+                        {{ item["score"] }}/10
+
+                    </div>
+
+
+                    <div class="activity-badge good-badge">
+
+                        Good
+
+                    </div>
+
+
+                {% else %}
+
+
+                    <div class="activity-status weak">
+                        !
+                    </div>
+
+
+                    <div class="activity-details">
+
+                        <strong>
+                            Password Check
+                        </strong>
+
+                        <span>
+                            {{ item["created_at"] }}
+                        </span>
+
+                    </div>
+
+
+                    <div class="activity-score weak-text">
+
+                        {{ item["score"] }}/10
+
+                    </div>
+
+
+                    <div class="activity-badge weak-badge">
+
+                        Weak
+
+                    </div>
+
+
+                {% endif %}
+
+
+            </div>
+
+
+            {% endfor %}
+
+
+        {% else %}
+
+
+            <div class="no-activity">
+
+
+                <div>
+                    📜
+                </div>
+
+
+                <h3>
+                    No activity yet
+                </h3>
+
+
+                <p>
+                    Check your first password to see
+                    your activity here.
+                </p>
+
+
+                <a href="/">
+                    🔍 Check Password
+                </a>
+
+
+            </div>
+
+
+        {% endif %}
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================
+     SECURITY TIP
+========================= -->
+
+<section class="security-tip">
+
+
+    <div class="tip-icon">
+        💡
+    </div>
+
+
+    <div>
+
+        <h3>
+            Security Tip
+        </h3>
+
+
+        <p>
+
+            Use a unique password for every important account.
+            A password manager can help you create and remember
+            strong passwords without reusing them.
+
+        </p>
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+</body>
+
+</html>

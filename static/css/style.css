@@ -1,0 +1,622 @@
+/* =========================================
+GLOBAL
+========================================= */
+
+* {
+  box-sizing: border-box;
+  }
+
+body {
+margin: 0;
+padding: 0;
+
+
+font-family: Arial, Helvetica, sans-serif;
+
+background:
+    linear-gradient(
+        135deg,
+        #0f2027,
+        #203a43,
+        #2c5364
+    );
+
+min-height: 100vh;
+
+color: white;
+
+
+}
+
+/* =========================================
+NAVIGATION
+========================================= */
+
+.navbar {
+width: 100%;
+
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+gap: 25px;
+
+padding: 18px 30px;
+
+background: rgba(0, 0, 0, 0.20);
+
+backdrop-filter: blur(10px);
+
+border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+
+flex-wrap: wrap;
+
+
+}
+
+.navbar a {
+color: white;
+
+
+text-decoration: none;
+
+font-size: 15px;
+
+font-weight: 600;
+
+transition: 0.3s;
+
+
+}
+
+.navbar a:hover {
+color: #00e5ff;
+}
+
+.nav-user {
+color: #00e5ff;
+
+
+font-weight: bold;
+
+font-size: 15px;
+
+
+}
+
+.nav-login {
+background: #00c853;
+
+
+padding: 8px 16px;
+
+border-radius: 8px;
+
+color: white !important;
+
+
+}
+
+.nav-login:hover {
+background: #00e676;
+
+
+transform: translateY(-1px);
+
+
+}
+
+/* =========================================
+MAIN CONTAINER
+========================================= */
+
+.container {
+width: 100%;
+
+
+max-width: 520px;
+
+margin: 45px auto;
+
+padding: 30px;
+
+background: rgba(255, 255, 255, 0.10);
+
+backdrop-filter: blur(15px);
+
+border: 1px solid rgba(255, 255, 255, 0.12);
+
+border-radius: 20px;
+
+box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.40);
+
+text-align: center;
+
+
+}
+
+/* =========================================
+WELCOME USER
+========================================= */
+
+.welcome-message {
+display: inline-block;
+
+
+margin-bottom: 20px;
+
+padding: 9px 16px;
+
+background: rgba(0, 229, 255, 0.10);
+
+border: 1px solid rgba(0, 229, 255, 0.25);
+
+border-radius: 20px;
+
+font-size: 14px;
+
+
+}
+
+.welcome-message strong {
+color: #00e5ff;
+}
+
+/* =========================================
+SECURITY BADGE
+========================================= */
+
+.badge {
+display: inline-block;
+
+
+padding: 7px 14px;
+
+margin-bottom: 15px;
+
+background: rgba(0, 229, 255, 0.10);
+
+border: 1px solid rgba(0, 229, 255, 0.25);
+
+border-radius: 20px;
+
+color: #00e5ff;
+
+font-size: 13px;
+
+font-weight: bold;
+
+
+}
+
+/* =========================================
+MAIN HEADING
+========================================= */
+
+h1 {
+margin: 5px 0 10px;
+
+
+font-size: 34px;
+
+line-height: 1.2;
+
+color: white;
+
+
+}
+
+h1 span {
+display: block;
+
+
+color: #00e5ff;
+
+margin-top: 5px;
+
+
+}
+
+/* =========================================
+DESCRIPTION
+========================================= */
+
+.container > p {
+margin: 0 auto 25px;
+
+
+max-width: 420px;
+
+color: #d6d6d6;
+
+font-size: 15px;
+
+line-height: 1.5;
+
+
+}
+
+/* =========================================
+PASSWORD CHECKER CARD
+========================================= */
+
+.card-header {
+display: flex;
+
+
+align-items: center;
+
+gap: 15px;
+
+text-align: left;
+
+padding: 18px;
+
+margin-bottom: 20px;
+
+background: rgba(255, 255, 255, 0.08);
+
+border-radius: 14px;
+
+border: 1px solid rgba(255, 255, 255, 0.10);
+
+
+}
+
+.lock-icon {
+width: 48px;
+
+
+height: 48px;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+flex-shrink: 0;
+
+background: rgba(0, 229, 255, 0.12);
+
+border-radius: 12px;
+
+font-size: 25px;
+
+
+}
+
+.card-header h2 {
+margin: 0 0 5px;
+
+
+font-size: 20px;
+
+color: white;
+
+
+}
+
+.card-header p {
+margin: 0;
+
+
+font-size: 13px;
+
+color: #bdbdbd;
+
+}
+
+/* =========================================
+FORM
+========================================= */
+
+form {
+width: 100%;
+
+
+text-align: left;
+
+
+}
+
+label {
+display: block;
+
+
+margin-bottom: 8px;
+
+font-size: 14px;
+
+font-weight: bold;
+
+color: #eeeeee;
+
+
+}
+
+/* =========================================
+PASSWORD INPUT
+========================================= */
+
+.password-input {
+position: relative;
+
+
+width: 100%;
+
+
+}
+
+.password-input input {
+width: 100%;
+
+
+height: 50px;
+
+padding: 0 50px 0 15px;
+
+border: none;
+
+outline: none;
+
+border-radius: 10px;
+
+background: white;
+
+color: #222;
+
+font-size: 15px;
+
+
+}
+
+.password-input input:focus {
+box-shadow:
+0 0 0 2px #00e5ff;
+}
+
+/* =========================================
+EYE BUTTON
+========================================= */
+
+.eye-button {
+position: absolute;
+
+
+right: 5px;
+
+top: 5px;
+
+width: 40px;
+
+height: 40px;
+
+border: none;
+
+background: transparent;
+
+cursor: pointer;
+
+border-radius: 8px;
+
+font-size: 18px;
+
+
+}
+
+.eye-button:hover {
+background: #eeeeee;
+}
+
+/* =========================================
+PASSWORD RULES
+========================================= */
+
+.rules {
+margin-top: 18px;
+
+
+display: grid;
+
+grid-template-columns: 1fr 1fr;
+
+gap: 8px;
+
+
+}
+
+.rule {
+padding: 10px;
+
+
+background: rgba(255, 255, 255, 0.08);
+
+border-radius: 8px;
+
+color: #cccccc;
+
+font-size: 13px;
+
+transition: 0.3s;
+
+
+}
+
+.rule span {
+margin-right: 5px;
+
+
+color: #888;
+
+
+}
+
+/* VALID */
+
+.rule.valid {
+color: #00ff7f;
+
+
+background: rgba(0, 255, 127, 0.10);
+
+
+}
+
+.rule.valid span {
+color: #00ff7f;
+}
+
+/* INVALID */
+
+.rule.invalid {
+color: #ff5252;
+
+
+background: rgba(255, 82, 82, 0.10);
+
+
+}
+
+.rule.invalid span {
+color: #ff5252;
+}
+
+/* =========================================
+ANALYZE BUTTON
+========================================= */
+
+.primary-button {
+width: 100%;
+
+
+height: 50px;
+
+margin-top: 20px;
+
+border: none;
+
+border-radius: 10px;
+
+background: #00c853;
+
+color: white;
+
+font-size: 16px;
+
+font-weight: bold;
+
+cursor: pointer;
+
+transition: 0.3s;
+
+
+}
+
+.primary-button:hover {
+background: #00e676;
+
+
+transform: translateY(-2px);
+
+box-shadow:
+    0 6px 18px rgba(0, 200, 83, 0.30);
+
+
+}
+
+/* =========================================
+DASHBOARD / EXTRA NAVIGATION
+========================================= */
+
+.dashboard-links {
+display: grid;
+
+
+grid-template-columns: repeat(2, 1fr);
+
+gap: 12px;
+
+margin-top: 25px;
+
+
+}
+
+.dashboard-links a {
+display: block;
+
+
+padding: 12px;
+
+background: rgba(255, 255, 255, 0.10);
+
+border-radius: 10px;
+
+color: white;
+
+text-decoration: none;
+
+font-size: 14px;
+
+font-weight: 600;
+
+transition: 0.3s;
+
+
+}
+
+.dashboard-links a:hover {
+background: rgba(0, 229, 255, 0.18);
+
+
+color: #00e5ff;
+
+transform: translateY(-2px);
+
+
+}
+
+/* =========================================
+MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+
+.navbar {
+    gap: 12px;
+
+    padding: 15px;
+}
+
+.navbar a,
+.nav-user {
+    font-size: 13px;
+}
+
+.container {
+    width: calc(100% - 30px);
+
+    margin: 25px auto;
+
+    padding: 22px;
+
+    border-radius: 16px;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+.rules {
+    grid-template-columns: 1fr;
+}
+
+.card-header {
+    padding: 14px;
+}
+
+
+}

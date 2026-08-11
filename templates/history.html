@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Password History - Password Security</title>
+
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/history.css') }}"
+>
+
+
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+
+<div class="logo">
+
+    <div class="logo-icon">🔐</div>
+
+    <div class="logo-text">
+        <strong>Password</strong>
+        <span>Security</span>
+    </div>
+
+</div>
+
+
+<nav class="sidebar-nav">
+
+    <a href="/dashboard" class="nav-item">
+        <span>📊</span>
+        Dashboard
+    </a>
+
+    <a href="/" class="nav-item">
+        <span>🔍</span>
+        Password Checker
+    </a>
+
+    <a href="/generator" class="nav-item">
+        <span>🎲</span>
+        Password Generator
+    </a>
+
+    
+
+    <a href="/history" class="nav-item active">
+        <span>📜</span>
+        Password History
+    </a>
+
+    <a href="/profile" class="nav-item">
+        <span>👤</span>
+        Profile
+    </a>
+
+</nav>
+
+
+<div class="sidebar-bottom">
+
+    <a href="{{ url_for('logout') }}" class="nav-item">
+        <span>🚪</span>
+        Logout
+    </a>
+
+</div>
+
+
+</aside>
+
+<main class="main-content">
+
+
+<header class="top-header">
+
+    <div>
+
+        <h1>Password History</h1>
+
+        <p>
+            View your previous password security checks.
+        </p>
+
+    </div>
+
+
+    <div class="user-area">
+
+        <div class="notification">
+            🔔
+        </div>
+
+        <div class="user-avatar">
+            {{ session.get("user_name", "U")[0].upper() }}
+        </div>
+
+    </div>
+
+</header>
+
+
+<section class="history-card">
+
+
+    <div class="card-heading">
+
+        <div>
+
+            <h2>Recent Password Checks</h2>
+
+            <p>
+                Your password analysis history.
+            </p>
+
+        </div>
+
+        <div class="history-count">
+
+            {{ history|length }} Checks
+
+        </div>
+
+    </div>
+
+
+    {% if history %}
+
+    <div class="history-list">
+
+        {% for item in history %}
+
+        <div class="history-row">
+
+
+            {% if item["result"] == "Excellent" %}
+
+            <div class="status-icon excellent">
+                ✓
+            </div>
+
+            {% elif item["result"] == "Good" %}
+
+            <div class="status-icon good">
+                ✓
+            </div>
+
+            {% else %}
+
+            <div class="status-icon weak">
+                !
+            </div>
+
+            {% endif %}
+
+
+            <div class="history-details">
+
+                <strong>
+                    Password Check
+                </strong>
+
+                <span>
+                    {{ item["created_at"] }}
+                </span>
+
+            </div>
+
+
+            <div class="history-score">
+
+                <strong>
+                    {{ item["score"] }}/10
+                </strong>
+
+                <span>
+                    Score
+                </span>
+
+            </div>
+
+
+            {% if item["result"] == "Excellent" %}
+
+            <div class="result-badge excellent-badge">
+                Excellent
+            </div>
+
+            {% elif item["result"] == "Good" %}
+
+            <div class="result-badge good-badge">
+                Good
+            </div>
+
+            {% else %}
+
+            <div class="result-badge weak-badge">
+                Weak
+            </div>
+
+            {% endif %}
+
+
+            {% if item["is_common"] %}
+
+            <div class="common-warning">
+                ⚠ Common
+            </div>
+
+            {% else %}
+
+            <div class="safe-status">
+                ✓ Unique
+            </div>
+
+            {% endif %}
+
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+
+    {% else %}
+
+    <div class="empty-history">
+
+        <div class="empty-icon">
+            📜
+        </div>
+
+        <h3>No Password History</h3>
+
+        <p>
+            Your password checks will appear here
+            after you analyze a password.
+        </p>
+
+        <a href="/" class="check-button">
+            🔍 Check a Password
+        </a>
+
+    </div>
+
+    {% endif %}
+
+
+</section>
+
+</main>
+
+</body>
+
+</html>

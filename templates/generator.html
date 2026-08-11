@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Password Generator - Password Security</title>
+
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/generator.css') }}"
+>
+
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+
+<div class="logo">
+
+    <div class="logo-icon">
+        🔐
+    </div>
+
+    <div class="logo-text">
+
+        <strong>Password</strong>
+
+        <span>Security</span>
+
+    </div>
+
+</div>
+
+
+<nav class="sidebar-nav">
+
+    <a href="/dashboard" class="nav-item">
+        <span>📊</span>
+        Dashboard
+    </a>
+
+    <a href="/" class="nav-item">
+        <span>🔍</span>
+        Password Checker
+    </a>
+
+    <a href="/generator" class="nav-item active">
+        <span>🎲</span>
+        Password Generator
+    </a>
+
+    
+
+    <a href="/history" class="nav-item">
+        <span>📜</span>
+        Password History
+    </a>
+
+    <a href="/profile" class="nav-item">
+        <span>👤</span>
+        Profile
+    </a>
+
+</nav>
+
+
+<div class="sidebar-bottom">
+
+    <a href="{{ url_for('logout') }}" class="nav-item">
+
+        <span>🚪</span>
+
+        Logout
+
+    </a>
+
+</div>
+
+
+</aside>
+
+<!-- MAIN -->
+
+<main class="main-content">
+
+
+<header class="top-header">
+
+    <div>
+
+        <h1>Password Generator</h1>
+
+        <p>
+            Create a strong and secure password.
+        </p>
+
+    </div>
+
+
+    <div class="user-area">
+
+        <div class="notification">
+            🔔
+        </div>
+
+        <div class="user-avatar">
+
+            {{ session.get("user_name", "U")[0].upper() }}
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<section class="generator-card">
+
+
+    <div class="card-title">
+
+        <div class="generator-icon">
+            🎲
+        </div>
+
+        <div>
+
+            <h2>Generate Password</h2>
+
+            <p>
+                Customize your password and generate
+                a secure combination.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- PASSWORD -->
+
+    <div class="password-box">
+
+        <input
+            type="text"
+            id="generatedPassword"
+            readonly
+            placeholder="Your password will appear here"
+        >
+
+        <button
+            type="button"
+            id="copyButton"
+            title="Copy password"
+        >
+            📋
+        </button>
+
+    </div>
+
+
+
+    <!-- STRENGTH -->
+
+    <div class="strength-section">
+
+        <div class="strength-header">
+
+            <span>Password Strength</span>
+
+            <strong id="strengthText">
+                -
+            </strong>
+
+        </div>
+
+
+        <div class="strength-bar">
+
+            <div
+                id="strengthBar"
+                class="strength-progress"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- LENGTH -->
+
+    <div class="option-section">
+
+        <div class="option-header">
+
+            <label for="length">
+                Password Length
+            </label>
+
+            <strong id="lengthValue">
+                16
+            </strong>
+
+        </div>
+
+
+        <input
+            type="range"
+            id="length"
+            min="8"
+            max="40"
+            value="16"
+        >
+
+    </div>
+
+
+
+    <!-- OPTIONS -->
+
+    <div class="options-grid">
+
+
+        <label class="check-option">
+
+            <input
+                type="checkbox"
+                id="uppercase"
+                checked
+            >
+
+            <span>
+                Uppercase Letters
+            </span>
+
+        </label>
+
+
+        <label class="check-option">
+
+            <input
+                type="checkbox"
+                id="lowercase"
+                checked
+            >
+
+            <span>
+                Lowercase Letters
+            </span>
+
+        </label>
+
+
+        <label class="check-option">
+
+            <input
+                type="checkbox"
+                id="numbers"
+                checked
+            >
+
+            <span>
+                Numbers
+            </span>
+
+        </label>
+
+
+        <label class="check-option">
+
+            <input
+                type="checkbox"
+                id="symbols"
+                checked
+            >
+
+            <span>
+                Special Characters
+            </span>
+
+        </label>
+
+
+    </div>
+
+
+
+    <!-- GENERATE -->
+
+    <button
+        type="button"
+        id="generateButton"
+        class="generate-button"
+    >
+
+        🔐 Generate Secure Password
+
+    </button>
+
+
+    <div
+        id="copyMessage"
+        class="copy-message"
+    ></div>
+
+
+</section>
+
+
+</main>
+
+<script src="{{ url_for('static', filename='js/generator.js') }}"></script>
+
+</body>
+
+</html>

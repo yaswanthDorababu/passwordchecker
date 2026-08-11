@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Password Security Tool</title>
+
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}"
+>
+
+
+</head>
+
+<body>
+
+<!-- ========================= -->
+
+<!-- NAVIGATION -->
+
+<!-- ========================= -->
+<nav class="navbar">
+
+
+<a href="/">
+    Checker
+</a>
+
+<a href="/generator">
+    Generator
+</a>
+
+
+
+
+{% if user_name %}
+
+    <span class="nav-user">
+        👋 {{ user_name }}
+    </span>
+
+    <a href="{{ url_for('dashboard') }}" class="dashboard-button">
+        📊 Dashboard
+    </a>
+
+    <a href="{{ url_for('logout') }}" class="nav-login">
+        Logout
+    </a>
+
+{% else %}
+
+    <a href="{{ url_for('login') }}" class="nav-login">
+        Login
+    </a>
+
+{% endif %}
+
+
+</nav>
+
+
+<!-- ========================= -->
+
+<!-- MAIN CONTAINER -->
+
+<!-- ========================= -->
+
+<div class="container">
+
+
+<!-- USER WELCOME -->
+
+{% if user_name %}
+
+    <div class="welcome-message">
+
+        👋 Welcome,
+        <strong>{{ user_name }}</strong>
+
+    </div>
+
+{% endif %}
+
+
+<!-- SECURITY BADGE -->
+
+<div class="badge">
+
+    🛡️ Password Security Tool
+
+</div>
+
+
+<!-- MAIN HEADING -->
+
+<h1>
+
+    Check Your
+
+    <span>Password Strength</span>
+
+</h1>
+
+
+<p>
+
+    Analyze your password and discover how strong
+    and secure it really is.
+
+</p>
+
+
+<!-- ========================= -->
+<!-- PASSWORD CHECKER CARD -->
+<!-- ========================= -->
+
+<div class="card-header">
+
+
+    <div class="lock-icon">
+
+        🔒
+
+    </div>
+
+
+    <div>
+
+        <h2>
+            Password Checker
+        </h2>
+
+        <p>
+            Enter a password to analyze its security.
+        </p>
+
+    </div>
+
+
+</div>
+
+
+<!-- PASSWORD FORM -->
+
+<form
+    action="{{ url_for('checking') }}"
+    method="POST"
+>
+
+
+    <label for="password">
+
+        Enter Your Password
+
+    </label>
+
+
+    <div class="password-input">
+
+
+        <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter your password"
+            autocomplete="off"
+            required
+        >
+
+
+        <button
+            type="button"
+            id="togglePassword"
+            class="eye-button"
+        >
+
+            👁️
+
+        </button>
+
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- PASSWORD RULES -->
+    <!-- ========================= -->
+
+    <div class="rules">
+
+
+        <div
+            class="rule"
+            id="passlength"
+        >
+
+            <span>✓</span>
+
+            Minimum 8 characters
+
+        </div>
+
+
+        <div
+            class="rule"
+            id="upper"
+        >
+
+            <span>✓</span>
+
+            One uppercase letter
+
+        </div>
+
+
+        <div
+            class="rule"
+            id="lower"
+        >
+
+            <span>✓</span>
+
+            One lowercase letter
+
+        </div>
+
+
+        <div
+            class="rule"
+            id="numbers"
+        >
+
+            <span>✓</span>
+
+            One number
+
+        </div>
+
+
+        <div
+            class="rule"
+            id="special"
+        >
+
+            <span>✓</span>
+
+            One special character
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ANALYZE BUTTON -->
+
+    <button
+        type="submit"
+        class="primary-button"
+    >
+
+        🔍 Analyze Password
+
+    </button>
+
+
+</form>
+
+
+</div>
+
+<!-- ========================= -->
+
+<!-- JAVASCRIPT -->
+
+<!-- ========================= -->
+
+<script
+    src="{{ url_for('static', filename='js/validation.js') }}"
+></script>
+
+</body>
+
+</html>
