@@ -8,7 +8,6 @@ const passlength = document.getElementById("passlength");
 
 if (password) {
 
-```
 password.addEventListener("keyup", function () {
 
     const value = password.value;
@@ -89,6 +88,42 @@ password.addEventListener("keyup", function () {
     }
 
 });
-```
 
+
+}
+
+const passwordInput = document.getElementById("password");
+const togglePassword = document.getElementById("togglePassword");
+
+if (passwordInput && togglePassword) {
+
+    togglePassword.addEventListener("click", function () {
+
+        // Change password visibility
+        if (passwordInput.type === "password") {
+
+            passwordInput.type = "text";
+
+            this.setAttribute(
+                "aria-label",
+                "Hide password"
+            );
+
+        } else {
+
+            passwordInput.type = "password";
+
+            this.setAttribute(
+                "aria-label",
+                "Show password"
+            );
+        }
+
+        // Restart animation
+        this.classList.remove("animate");
+
+        void this.offsetWidth;
+
+        this.classList.add("animate");
+    });
 }

@@ -162,32 +162,28 @@
     </label>
 
 
-    <div class="password-input">
+   <div class="password-input">
 
+    <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Enter your password"
+        autocomplete="off"
+        required
+    >
 
-        <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Enter your password"
-            autocomplete="off"
-            required
-        >
+    <button
+        type="button"
+        id="togglePassword"
+        class="eye-button"
+        aria-label="Show password">
 
+        <span class="eye-icon">👁️</span>
 
-        <button
-            type="button"
-            id="togglePassword"
-            class="eye-button"
-        >
+    </button>
 
-            👁️
-
-        </button>
-
-
-    </div>
-
+</div>
 
     <!-- ========================= -->
     <!-- PASSWORD RULES -->
@@ -285,7 +281,7 @@
 <script
     src="{{ url_for('static', filename='js/validation.js') }}"
 ></script>
-
+<script src="{{ url_for('static', filename='js/validation.js') }}"></script>
 </body>
 
 </html>

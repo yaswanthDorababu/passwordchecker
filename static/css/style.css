@@ -620,3 +620,87 @@ h1 {
 
 
 }
+/* Hide browser's built-in password eye */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+
+/* Password input container */
+.password-input {
+    position: relative;
+}
+
+/* Eye button */
+.eye-button {
+    position: absolute;
+
+    right: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    z-index: 5;
+}
+
+/* Eye */
+.eye-icon {
+    display: inline-block;
+
+    font-size: 21px;
+
+    transform-origin: center;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.2s ease;
+}
+
+/* Eye click animation */
+.eye-button.animate .eye-icon {
+    animation: eyeBlink 0.45s ease;
+}
+
+@keyframes eyeBlink {
+
+    0% {
+        transform: scaleY(1);
+    }
+
+    35% {
+        transform: scaleY(0.08);
+    }
+
+    65% {
+        transform: scaleY(1.15);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
+
+}
+
+/* Hover */
+.eye-button:hover .eye-icon {
+    transform: scale(1.12);
+}
+
+/* Click */
+.eye-button:active .eye-icon {
+    transform: scale(0.9);
+}
